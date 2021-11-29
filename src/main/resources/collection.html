@@ -1,13 +1,14 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Mini Project - Collections</title>
 	</head>
 	<body>
-		<form action="http://localhost:8080/collect" method="POST">
-            <label for="item">Item:</label><!-- the label tag specifies which input this text is referring to -->
-            <input type="text" name="item" id="item">
+		<form action="http://localhost:8080/collect" method="POST" autocomplete = 'off'>
+            <label for="item">Item:</label>
+            <input type="text" name="item" id="item" value = "">
             <br>
-            <button>Add Item</button>
+			<input type="submit" value ="Add Item">
         </form>
 		<form action="http://localhost:8080/display" method="GET">
             <button>Show List</button>

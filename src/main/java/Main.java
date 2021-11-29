@@ -19,8 +19,11 @@ public class Main {
 		app.post("/collect", ctx -> {
 			// get the item from the request body
 			String item = ctx.body().replaceFirst("item=", "");
-			//ctx.result(item);
+
 			collection.add(item);
+
+			ctx.html("<script>window.history.go(-1);</script>");
+
 		});
 		
 		app.get("/display", ctx-> {
