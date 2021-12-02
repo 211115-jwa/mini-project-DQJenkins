@@ -35,8 +35,7 @@ public class Game {
 	
 	@Override
 	public String toString() {
-		return "Game [title=" + title + ", esrbRating=" + esrbRating + ", platform=" + platform + ", price=" + price
-				+ "]";
+		return title + "\t\t" + platform + "\t\t" + esrbRating + "\t\t" + price;
 	}
 	@Override
 	public int hashCode() {

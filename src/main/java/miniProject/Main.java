@@ -15,25 +15,30 @@ public class Main {
 		// starting the Javalin app
 		// (opening up to receive requests)
 		app.start();
-		ArrayList<String> collection = new ArrayList<String>();
+		ArrayList<Game> collection = new ArrayList<Game>();
+		
 		// if we get a request with the "POST" method
 		// and the URI ends with "/collect"
 		app.post("/collect", ctx -> {
-			// get the item from the request body
-			String item = ctx.body().replaceFirst("item=", "");
+			Game game = new Game();
+			
+			game.setTitle(ctx.formParam("title"));
+			game.setPlatform(ctx.formParam("platform"));
+			game.setEsrbRating(ctx.formParam("rating"));
+			game.setPrice(Float.parseFloat(ctx.formParam("price")));
 
-			collection.add(item);
+			collection.add(game);
 
+			//Sends the browser back one page in history to the page they came from
 			ctx.html("<script>window.history.go(-1);</script>");
-
 		});
 		
 		app.get("/display", ctx-> {
 			int count = 1;
 			String responseText = "";
-			for(String item: collection)
+			for(Game game: collection)
 			{
-				responseText += ("Item " + count + ": " + item + "\n");
+				responseText += ("Item " + count + ": " + game + "\n");
 				count++;
 			}		
 			ctx.result(responseText);
