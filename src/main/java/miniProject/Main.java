@@ -1,7 +1,9 @@
+package miniProject;
 
 
 import java.util.ArrayList;
 import java.util.Collections;
+
 import io.javalin.Javalin;
 
 public class Main {
